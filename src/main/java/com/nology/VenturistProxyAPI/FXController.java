@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.NoSuchElementException;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"https://accentureclientprojecttest.web.app/", "http://localhost:3000"})
 @RestController
 public class FXController {
 
