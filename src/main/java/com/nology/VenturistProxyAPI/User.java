@@ -9,16 +9,15 @@ import java.util.List;
 @Entity
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userID;
+    private String userID;
     private String firstName;
     private String lastName;
     private String middleNames;
     private List<Holding> holdings;
     private List<Integer> contacts;
 
-    public User(String firstName, String lastName, String middleNames, List<Holding> holdings, List<Integer> contacts) {
+    public User(String userID, String firstName, String lastName, String middleNames, List<Holding> holdings, List<Integer> contacts) {
+        this.userID = userID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleNames = middleNames;
@@ -30,7 +29,7 @@ public class User {
 
     }
 
-    public int getUserID() {
+    public String getUserID() {
         return userID;
     }
 

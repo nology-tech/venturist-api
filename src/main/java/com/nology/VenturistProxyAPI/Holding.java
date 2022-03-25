@@ -11,13 +11,13 @@ public class Holding {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int userID;
+    private String userID;
     private String currencyName;
     private double amount;
     private String currencyCode;
     private String currencySymbol;
 
-    public Holding(int userID, String currencyName, double amount, String currencyCode, String currencySymbol) {
+    public Holding(String userID, String currencyName, double amount, String currencyCode, String currencySymbol) {
         this.userID = userID;
         this.currencyName = currencyName;
         this.amount = amount;
@@ -29,7 +29,7 @@ public class Holding {
         return id;
     }
 
-    public int getUserID() {
+    public String getUserID() {
         return userID;
     }
 
