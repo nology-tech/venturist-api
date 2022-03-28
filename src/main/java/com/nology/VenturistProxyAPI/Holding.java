@@ -25,6 +25,9 @@ public class Holding {
         this.currencySymbol = currencySymbol;
     }
 
+    public Holding() {
+    }
+
     public int getId() {
         return id;
     }
