@@ -15,10 +15,10 @@
 //    private String address;
 //    private String city;
 //    private String country;
-//    private int userID;
+//    private String userID;
 //    private int bankAccountID;
 //
-//    public Address(String postCode, String address, String city, String country, int userID, int bankAccountID) {
+//    public Address(String postCode, String address, String city, String country, String userID, int bankAccountID) {
 //        this.postCode = postCode;
 //        this.address = address;
 //        this.city = city;

@@ -11,14 +11,14 @@
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private int id;
-//    private int userID;
+//    private String userID;
 //    private String bankName;
 //    private String accountNumber;
 //    private String sortCode;
 //    private String nameOnAccount;
 //    private Address address;
 //
-//    public BankAccount(int userID, String bankName, String accountNumber, String sortCode, String nameOnAccount, Address address) {
+//    public BankAccount(String userID, String bankName, String accountNumber, String sortCode, String nameOnAccount, Address address) {
 //        this.userID = userID;
 //        this.bankName = bankName;
 //        this.accountNumber = accountNumber;

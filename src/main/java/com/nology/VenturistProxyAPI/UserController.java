@@ -19,19 +19,22 @@ public class UserController {
     UserRepository repository;
     private List<User> users = new ArrayList<User>();
 
-    @GetMapping("/users")
-    private ResponseEntity<List<User>> getAllUsers() {
-        try {
-            return ResponseEntity.status(HttpStatus.OK).body(repository.findAll());
-        }
-        catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-    }
-
-    @PostMapping("/createuser")
+    @PostMapping("/user")
     public ResponseEntity<String> createUser(@RequestBody User user) {
         repository.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body("Success, a new user has been added");
     }
+
+    @GetMapping("/users")
+    public ResponseEntity<List<User>> getUsers() {
+        return ResponseEntity.status(HttpStatus.OK).body(repository.findAll());
+    }
+
+//    @DeleteMapping("/course/{id}")
+//    @Transactional
+//    public ResponseEntity<String> deleteCourse(@PathVariable String id) {
+//        repository.deleteById(Integer.parseInt(id));
+//        return ResponseEntity.status(HttpStatus.OK).body("Course Deleted");
+//    }
 }
+
