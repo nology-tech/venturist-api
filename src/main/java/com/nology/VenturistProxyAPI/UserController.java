@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @CrossOrigin(origins = {"https://accentureclientprojecttest.web.app/", "http://localhost:3000", "http://localhost:3001"})
 @RestController
@@ -16,16 +15,16 @@ public class UserController {
     @Autowired
     UserRepository repository;
 
-    private List<User> users = new ArrayList<User>();
+    private List<Users> users = new ArrayList<Users>();
 
     @PostMapping("/user")
-    public ResponseEntity<String> createUser(@RequestBody User user) {
-        repository.save(user);
+    public ResponseEntity<String> createUser(@RequestBody Users users) {
+        repository.save(users);
         return ResponseEntity.status(HttpStatus.CREATED).body("Success, a new user has been added");
     }
 
     @GetMapping("/users")
-    public ResponseEntity<List<User>> getUsers() {
+    public ResponseEntity<List<Users>> getUsers() {
         return ResponseEntity.status(HttpStatus.OK).body(repository.findAll());
     }
 
