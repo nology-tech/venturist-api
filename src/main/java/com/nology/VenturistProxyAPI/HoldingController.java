@@ -24,7 +24,13 @@ public class HoldingController {
 
     @GetMapping("/holding/{id}")
     public ResponseEntity<Holding> getHoldingById(@PathVariable String id) {
-        return ResponseEntity.status(HttpStatus.OK).body(repository.findByHoldingID(Integer.parseInt(id)));
+        return ResponseEntity.status(HttpStatus.OK).body(repository.findById(Integer.parseInt(id)));
     }
+
+    @GetMapping("/user-holding/{userId}")
+    public ResponseEntity<List<Holding>> getHoldingByUserId(@PathVariable String userId){
+        return ResponseEntity.status(HttpStatus.OK).body(repository.findAllHoldingByUserID(userId));
+    }
+
 
 }
