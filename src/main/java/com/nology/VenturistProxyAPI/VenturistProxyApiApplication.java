@@ -9,5 +9,4 @@ public class VenturistProxyApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(VenturistProxyApiApplication.class, args);
 	}
-
 }

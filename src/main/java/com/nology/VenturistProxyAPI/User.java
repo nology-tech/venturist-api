@@ -1,28 +1,24 @@
 package com.nology.VenturistProxyAPI;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.lang.reflect.Array;
 import java.util.List;
 
-@Entity
-public class User {
+    @Entity
+    @Table(name="users")
+    public class User {
 
-    private String userID;
-    private String firstName;
-    private String lastName;
-    private String middleNames;
-    private List<Holding> holdings;
-    private List<Integer> contacts;
+        @Id
+        private String userID;
+        private String firstName;
+        private String lastName;
+        private String middleNames;
 
-    public User(String userID, String firstName, String lastName, String middleNames, List<Holding> holdings, List<Integer> contacts) {
+    public User(String userID, String firstName, String lastName, String middleNames) {
         this.userID = userID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleNames = middleNames;
-        this.holdings = holdings;
-        this.contacts = contacts;
     }
 
     public User() {
@@ -45,11 +41,4 @@ public class User {
         return middleNames;
     }
 
-    public List<Holding> getHoldings() {
-        return holdings;
-    }
-
-    public List<Integer> getContacts() {
-        return contacts;
-    }
 }
