@@ -28,11 +28,7 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(repository.findAll());
     }
 
-//    @DeleteMapping("/course/{id}")
-//    @Transactional
-//    public ResponseEntity<String> deleteCourse(@PathVariable String id) {
-//        repository.deleteById(Integer.parseInt(id));
-//        return ResponseEntity.status(HttpStatus.OK).body("Course Deleted");
-//    }
+
+
 }
 
