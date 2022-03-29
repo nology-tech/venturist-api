@@ -28,6 +28,10 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(repository.findAll());
     }
 
+    @GetMapping("/user/{id}")
+    public ResponseEntity<Users> getUserById(@PathVariable String id){
+        return ResponseEntity.status(HttpStatus.OK).body(repository.findByUserID(id));
+    }
 
 
 }

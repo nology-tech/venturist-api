@@ -2,8 +2,10 @@ package com.nology.VenturistProxyAPI;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="users")
 public class Users {
     @Id
     private String userID;
