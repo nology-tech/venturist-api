@@ -1,6 +1,5 @@
 package com.nology.VenturistProxyAPI;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +14,25 @@ public class UserController {
 
     @Autowired
     UserRepository repository;
-    private List<User> users = new ArrayList<User>();
 
-    @PostMapping("/createuser")
-    public ResponseEntity<String> createUser(@RequestBody User user) {
-        repository.save(user);
+    private List<Users> users = new ArrayList<Users>();
+
+    @PostMapping("/user")
+    public ResponseEntity<String> createUser(@RequestBody Users users) {
+        repository.save(users);
         return ResponseEntity.status(HttpStatus.CREATED).body("Success, a new user has been added");
     }
+
+    @GetMapping("/users")
+    public ResponseEntity<List<Users>> getUsers() {
+        return ResponseEntity.status(HttpStatus.OK).body(repository.findAll());
+    }
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<Users> getUserById(@PathVariable String id){
+        return ResponseEntity.status(HttpStatus.OK).body(repository.findByUserID(id));
+    }
+
+
 }
 

@@ -1,11 +1,9 @@
 package com.nology.VenturistProxyAPI;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="holdings")
 public class Holding {
 
     @Id
@@ -23,6 +21,9 @@ public class Holding {
         this.amount = amount;
         this.currencyCode = currencyCode;
         this.currencySymbol = currencySymbol;
+    }
+
+    public Holding() {
     }
 
     public int getId() {
