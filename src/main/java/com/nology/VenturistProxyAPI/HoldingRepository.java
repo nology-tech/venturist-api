@@ -2,6 +2,7 @@ package com.nology.VenturistProxyAPI;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -15,5 +16,9 @@ public interface HoldingRepository extends JpaRepository<Holding, String> {
     List<Holding> findAllHoldingByUserID(@Param("id") String id);
 
     Holding findById(int id);
+
+    @Modifying
+    @Query(value = "UPDATE user_data.holdings SET amount = :amount WHERE userID = :userID AND currency_code = :currencyCode", nativeQuery = true)
+    void updateUserHolding(double amount, String userID, String currencyCode);
 
 }

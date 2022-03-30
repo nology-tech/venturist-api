@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @CrossOrigin(origins = {"https://accentureclientprojecttest.web.app/", "http://localhost:3000", "http://localhost:3001"})
@@ -29,10 +30,22 @@ public class HoldingController {
         return ResponseEntity.status(HttpStatus.OK).body(repository.findAllHoldingByUserID(userId));
     }
 
+
     @PostMapping("/holding")
     public ResponseEntity<String> createHolding(@RequestBody Holding holding) {
         repository.save(holding);
         return ResponseEntity.status(HttpStatus.CREATED).body("Success, a new holding has been added");
+    }
+            
+    @PutMapping("/holdings")
+    @Transactional
+    public ResponseEntity<String> updateUserHolding(@RequestBody Holding holding ) {
+        String userID = holding.getUserID();
+        double amount = holding.getAmount();
+        String currencyCode = holding.getCurrencyCode();
+        repository.updateUserHolding(amount, userID, currencyCode);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body("done");
+
     }
 
 }
