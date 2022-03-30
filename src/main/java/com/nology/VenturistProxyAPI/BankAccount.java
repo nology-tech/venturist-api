@@ -16,17 +16,15 @@ public class BankAccount {
     private String accountNumber;
     private String sortCode;
     private String nameOnAccount;
-//    private Address address;
+    private int addressId;
 
-    public BankAccount(String userID, String bankName, String accountNumber, String sortCode, String nameOnAccount
-//                       Address address
-    ) {
+    public BankAccount(String userID, String bankName, String accountNumber, String sortCode, String nameOnAccount, int addressId) {
         this.userID = userID;
         this.bankName = bankName;
         this.accountNumber = accountNumber;
         this.sortCode = sortCode;
         this.nameOnAccount = nameOnAccount;
-//        this.address = address;
+        this.addressId = addressId;
     }
 
     public BankAccount() {
@@ -56,8 +54,8 @@ public class BankAccount {
     public String getNameOnAccount() {
         return nameOnAccount;
     }
-//
-//    public Address getAddress() {
-//        return address;
-//    }
+
+    public int getAddressId() {
+        return addressId;
+    }
 }
