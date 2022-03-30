@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 public interface ContactsRepository extends JpaRepository<Contacts, String> {
 
     Contacts findById(int id);
+
 }
