@@ -48,4 +48,12 @@ public class Address {
     public String getCountry() {
         return country;
     }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public int getBankAccountID() {
+        return bankAccountID;
+    }
 }
