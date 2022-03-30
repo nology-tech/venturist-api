@@ -29,8 +29,7 @@ public class HoldingController {
     public ResponseEntity<List<Holding>> getHoldingByUserId(@PathVariable String userId){
         return ResponseEntity.status(HttpStatus.OK).body(repository.findAllHoldingByUserID(userId));
     }
-
-
+    
     @PostMapping("/holding")
     public ResponseEntity<String> createHolding(@RequestBody Holding holding) {
         repository.save(holding);
@@ -47,5 +46,4 @@ public class HoldingController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body("done");
 
     }
-
 }
