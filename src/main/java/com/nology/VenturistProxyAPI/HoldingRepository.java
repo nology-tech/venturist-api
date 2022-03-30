@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-//@Qualifier("Holdings")
 @Repository
 public interface HoldingRepository extends JpaRepository<Holding, String> {
 
