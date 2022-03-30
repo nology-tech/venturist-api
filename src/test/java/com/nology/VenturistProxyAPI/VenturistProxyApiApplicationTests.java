@@ -42,6 +42,14 @@ class VenturistProxyApiApplicationTests {
 		}
 	}
 
+	@Test
+	public void testTransactionGetAllReturnsFound() throws Exception {
+		String endpoint = "http://localhost:" + port + "/transactions";
+		ResponseEntity<String> response= restTemplate.getForEntity(endpoint, String.class);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.FOUND);
+
+	}
+
 
 
 }
