@@ -32,5 +32,4 @@ public class HoldingController {
         return ResponseEntity.status(HttpStatus.OK).body(repository.findAllHoldingByUserID(userId));
     }
 
-
 }
