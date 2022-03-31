@@ -10,19 +10,19 @@ public class Transaction {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int transactionId;
 
-  private int userFromId;
-  private int userToId;
+  private String userFromId;
+  private String userToId;
   private String currencyCodeFrom;
   private String currencyCodeTo;
   private double amountFrom;
   private double amountTo;
   private double rate;
   private double fee;
-  private Timestamp timestamp;
+
 
   public Transaction(
-    int userFromId,
-    int userToId,
+    String userFromId,
+    String userToId,
     String currencyCodeFrom,
     String currencyCodeTo,
     double amountFrom,
@@ -37,7 +37,7 @@ public class Transaction {
     this.amountTo = amountTo;
     this.rate = rate;
     this.fee = fee;
-    this.timestamp = new Timestamp(System.currentTimeMillis());
+
   }
 
   public Transaction() {}
@@ -46,11 +46,11 @@ public class Transaction {
     return transactionId;
   }
 
-  public int getUserFromId() {
+  public String getUserFromId() {
     return userFromId;
   }
 
-  public int getUserToId() {
+  public String getUserToId() {
     return userToId;
   }
 
@@ -78,7 +78,4 @@ public class Transaction {
     return fee;
   }
 
-  public Timestamp getTimestamp() {
-    return timestamp;
-  }
 }
