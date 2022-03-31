@@ -1,11 +1,9 @@
 package com.nology.VenturistProxyAPI;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "bankAccounts")
 public class BankAccount {
 
     @Id
@@ -13,18 +11,17 @@ public class BankAccount {
     private int id;
     private String userID;
     private String bankName;
-    private String accountNumber;
+    private String bankAccountNo;
     private String sortCode;
     private String nameOnAccount;
-    private int addressId;
 
-    public BankAccount(String userID, String bankName, String accountNumber, String sortCode, String nameOnAccount, int addressId) {
+
+    public BankAccount(String userID, String bankName, String bankAccountNo, String sortCode, String nameOnAccount) {
         this.userID = userID;
         this.bankName = bankName;
-        this.accountNumber = accountNumber;
+        this.bankAccountNo = bankAccountNo;
         this.sortCode = sortCode;
         this.nameOnAccount = nameOnAccount;
-        this.addressId = addressId;
     }
 
     public BankAccount() {
@@ -43,8 +40,8 @@ public class BankAccount {
         return bankName;
     }
 
-    public String getAccountNumber() {
-        return accountNumber;
+    public String getBankAccountNo() {
+        return bankAccountNo;
     }
 
     public String getSortCode() {
@@ -53,9 +50,5 @@ public class BankAccount {
 
     public String getNameOnAccount() {
         return nameOnAccount;
-    }
-
-    public int getAddressId() {
-        return addressId;
     }
 }
