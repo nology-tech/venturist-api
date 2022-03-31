@@ -21,7 +21,6 @@ public class Transaction {
   private Timestamp timestamp;
 
   public Transaction(
-    int transactionId,
     int userFromId,
     int userToId,
     String currencyCodeFrom,
@@ -30,7 +29,6 @@ public class Transaction {
     double amountTo,
     double rate,
     double fee) {
-    this.transactionId = transactionId;
     this.userFromId = userFromId;
     this.userToId = userToId;
     this.currencyCodeFrom = currencyCodeFrom;
