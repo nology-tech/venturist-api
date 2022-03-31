@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @CrossOrigin(origins = {"https://accentureclientprojecttest.web.app/", "http://localhost:3000", "http://localhost:3001"})
 @RestController
@@ -16,6 +18,11 @@ public class BankAccountController {
     @GetMapping("/bank-account/{id}")
     public ResponseEntity<BankAccount> getBankAccountById(@PathVariable String id) {
         return ResponseEntity.status(HttpStatus.OK).body(repository.findById(Integer.parseInt(id)));
+    }
+
+    @GetMapping("user-bank-account/{userID}")
+    public ResponseEntity<List<BankAccount>> getBankAccountByUserID(@PathVariable String userID) {
+        return ResponseEntity.status(HttpStatus.OK).body(repository.findAllByUserID(userID));
     }
 
     @PostMapping("/create-bank-account")
