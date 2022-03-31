@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @CrossOrigin(origins = {"https://accentureclientprojecttest.web.app/", "http://localhost:3000", "http://localhost:3001"})
@@ -31,4 +32,10 @@ public class ContactsController {
         return ResponseEntity.status(HttpStatus.CREATED).body("Success, a new contact has been added");
     }
 
+    @DeleteMapping("/contact/{id}")
+    @Transactional
+    public ResponseEntity<String> deleteContact(@PathVariable String id) {
+        repository.deleteById(Integer.parseInt(id));
+        return ResponseEntity.status(HttpStatus.OK).body("Deleted contact.");
+    }
 }

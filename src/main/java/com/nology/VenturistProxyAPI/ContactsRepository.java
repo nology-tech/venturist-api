@@ -15,4 +15,6 @@ public interface ContactsRepository extends JpaRepository<Contacts, String> {
     @Query(value = "SELECT * FROM contacts WHERE userID = ?1", nativeQuery = true)
     List<Contacts> findAllContactsByUserID(String id);
 
+    void deleteById(int id);
+
 }
